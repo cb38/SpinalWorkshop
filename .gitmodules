@@ -4,3 +4,6 @@
 [submodule "workshop/test/resources/python/cocotblib"]
 	path = workshop/test/resources/python/cocotblib
 	url = https://github.com/SpinalHDL/CocotbLib
+[submodule "ext/SpinalHDL"]
+	path = ext/SpinalHDL
+	url = https://github.com/SpinalHDL/SpinalHDL.git
