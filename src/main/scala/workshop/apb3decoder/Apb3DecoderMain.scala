@@ -6,7 +6,7 @@ import spinal.lib.bus.amba3.apb.Apb3Config
 // Run this main to generate the RTL
 object Apb3DecoderMain{
   def main(args: Array[String]) {
-    SpinalConfig(targetDirectory = "rtl").generateVhdl(new Apb3Decoder(
+    SpinalConfig(targetDirectory = "rtl").generateVerilog(new Apb3Decoder(
       apbConfig = Apb3Config(
         addressWidth = 16,
         dataWidth = 32

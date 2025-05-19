@@ -13,7 +13,9 @@ class CounterTester extends AnyFunSuite {
   var compiled: SimCompiled[Counter] = null
 
   test("compile") {
-    compiled = WorkshopSimConfig().compile(Counter(width = 4))
+    compiled = WorkshopSimConfig().compile(
+      Counter(width = 4)
+      )
   }
 
   test("testbench") {

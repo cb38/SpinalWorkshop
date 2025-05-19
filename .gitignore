@@ -12,7 +12,11 @@ lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
-
+.metals/
+.bloop/
+.DS_Store
+project/
+*.v
 # Scala-IDE specific
 .scala_dependencies
 .worksheet

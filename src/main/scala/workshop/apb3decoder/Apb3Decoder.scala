@@ -32,6 +32,28 @@ case class Apb3Decoder(apbConfig : Apb3Config, outputsMapping : Seq[Mapping]) ex
     val outputs = Vec(master(Apb3(apbConfig)), outputsMapping.length)
   }
 
+  
+
   // TODO fully asynchronous apb3 decoder
+  for (output <- io.outputs)
+  {
+    output.PADDR := io.input.PADDR
+    output.PENABLE := io.input.PENABLE
+    output.PWRITE := io.input.PWRITE
+    output.PWDATA := io.input.PWDATA
+    
+  } 
+
+  val select_map = outputsMapping.map(_.hit(io.input.PADDR))
+  val selectionIndex = OHToUInt (select_map)
+
+  for (i<- 0 until outputsMapping.length) {
+    io.outputs(i).PSEL.lsb := select_map(i) && io.input.PSEL.lsb
+  }
+  io.input.PRDATA := io.outputs(selectionIndex).PRDATA
+  io.input.PREADY := io.outputs(selectionIndex).PREADY
+  io.input.PSLVERROR := io.outputs(selectionIndex).PSLVERROR
+  
+
 }
 
